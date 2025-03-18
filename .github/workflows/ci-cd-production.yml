@@ -48,6 +48,6 @@ jobs:
             docker logout ghcr.io
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
             docker rm -f ${{ env.CONTAINER_NAME }} || true
-            docker pull ghcr.io/naruapon/my-bmi-app:${{ env.TAG_NAME }}
-            docker run --restart=always -d --pull always --name ${{ env.CONTAINER_NAME }} -p 5555:80 ghcr.io/naruapon/my-bmi-app:${{ env.TAG_NAME }}
+            docker pull ghcr.io/yanakorns/my-bmi-app:${{ env.TAG_NAME }}
+            docker run --restart=always -d --pull always --name ${{ env.CONTAINER_NAME }} -p 5002:80 ghcr.io/yanakorns/my-bmi-app:${{ env.TAG_NAME }}
           EOF
